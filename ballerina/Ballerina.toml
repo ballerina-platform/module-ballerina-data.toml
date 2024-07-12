@@ -1,0 +1,18 @@
+[package]
+org = "ballerina"
+name = "data.toml"
+version = "0.1.0"
+authors = ["Ballerina"]
+keywords = ["toml"]
+repository = "https://github.com/ballerina-platform/module-ballerina-data.toml"
+license = ["Apache-2.0"]
+distribution = "2201.9.0"
+
+[platform.java17]
+graalvmCompatible = true
+
+[[platform.java17.dependency]]
+groupId = "io.ballerina.lib"
+artifactId = "toml-native"
+version = "0.1.0"
+path = "../native/build/libs/data.toml-native-0.1.0-SNAPSHOT.jar"
