@@ -18,7 +18,7 @@
 
 plugins {
     id "com.github.spotbugs" version "${githubSpotbugsVersion}"
-    id "com.github.johnrengelman.shadow" version "${githubJohnrengelmanShadowVersion}"
+    id "com.gradleup.shadow" version "${githubJohnrengelmanShadowVersion}"
     id "de.undercouch.download" version "${underCouchDownloadVersion}"
     id "net.researchgate.release" version "${researchgateReleaseVersion}"
 }
@@ -28,6 +28,9 @@ allprojects {
     version = project.version
 
     apply plugin: 'jacoco'
+    jacoco {
+        toolVersion = jacocoVersion
+    }
     apply plugin: 'maven-publish'
 
     repositories {
@@ -87,6 +90,6 @@ release {
     }
 }
 
-task build {
+tasks.named('build') {
     dependsOn('data.toml-ballerina:build')
 }
